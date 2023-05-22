@@ -10,8 +10,6 @@ from langchain.agents.agent_toolkits import (
     VectorStoreInfo
 )
 from utils import get_base64
-from utils import set_background
-
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -26,7 +24,7 @@ chroma_store = Chroma.from_documents(pages, collection_name='bitcoin') # Load do
 
 # Create vectorstore info object - metadata repo?
 encoded_string = get_base64("_btc.png")
-set_background("_btc.png")
+# set_background("_btc.png")
 
 vectorstore_info = VectorStoreInfo(
     name="bitcoin",
@@ -46,7 +44,7 @@ agent_craigwright = create_vectorstore_agent(
 strmlt.title('GPT Satoshi')
 
 # Create a text input box for the user
-prompt = strmlt.text_input('Your path to freedom starts here. Congrats on taking the orange pill. Be patient and watch around you. ') + "if asked about Bitcoin's total supply, remember that it is fixed at 21 million total supply, meaning only 21 million entire Bitcoins can theoretically be mined and that's the upper limit of the supply. This can never change"
+prompt = strmlt.text_input('Your path to freedom starts here. Congrats on taking the orange pill. Be patient and watch around you. Fiat will collapse sooner or later and you want to be on the right side when that happens.') + "if asked about Bitcoin's total supply, remember that it is fixed at 21 million total supply, meaning only 21 million entire Bitcoins can theoretically be mined and that's the upper limit of the supply. This can never change"
 
 # If the user hits enter, feed prompt to LLM and print response
 if prompt:
